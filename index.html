@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A First App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <label for="goal">Goal</label>
+        <input type="text" id="goal" v-model="enteredValue"/> <!-- 입력되는 내용이 대입될 변수 -->
+        <button v-on:click="addGoal">Add Goal</button> <!-- click 이벤트 -->
+      </div>
+      <ul>
+        <li v-for="goal in goals">{{ goal }}</li> <!-- goals 배열의 goal로 하나씩 접근  이중 괄호로 표시-->
+      </ul>
+    </div>
+    <script src="https://unpkg.com/vue@3"></script> <!-- 패키지 설치 없이 CDN을 통해 Vue 사용 -->
+    <script src="app.js"></script>
+  </body>
+</html>
