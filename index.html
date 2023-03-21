@@ -19,6 +19,7 @@
     <section id="user-goal">
       <h2>My Course Goal</h2>
       <p>{{ outputGoal() }}</p> <!-- 보간법은 data뿐 아니라 methods도 가능. 기본적인 js 코드도 가능. 다만 복잡한(if 등) 기능은 불가 -->
+      <p v-html= "outputGoal()"></p> <!-- v-html은 이중 중괄호가 아닌 큰 따옴표를 이용한다. -->
       <p>Learn more <a v-bind:href="vueLink">about Vue</a></p> <!-- 이중 중괄호 구문은 여닫는 HTML 태그에서만 사용이 가능. --> <!--<a href="{{ vueLink }}"> 는 오류 발생-->
     </section>
   </body>
