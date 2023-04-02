@@ -16,13 +16,22 @@
     <header>
       <h1>Vue Course Goals</h1>
     </header>
-    <section id="user-goal">
       <h2>My Course Goal</h2>
       <p>{{ outputGoal() }}</p> <!-- 보간법은 data뿐 아니라 methods도 가능. 기본적인 js 코드도 가능. 다만 복잡한(if 등) 기능은 불가 -->
       <p v-html= "outputGoal()"></p> <!-- v-html은 이중 중괄호가 아닌 큰 따옴표를 이용한다. -->
       <p>Learn more <a v-bind:href="vueLink">about Vue</a></p> <!-- 이중 중괄호 구문은 여닫는 HTML 태그에서만 사용이 가능. --> <!--<a href="{{ vueLink }}"> 는 오류 발생-->
     </section>
+    <header>
+      <h1>Vue Events</h1>
+    </header>
+    <section id = "events">
+      <h2>Events in Action</h2>
+      <button>Add</button>
+      <button>Reduce</button>
+      <p>Result: {{ counter }}</p>
+    </section>
   </body>
 </html>
 <!-- Vue 디렉티브 : HTML 코드에 추가로 넣는 지시사항 v로 시작한다.-->
 <!-- v-bind : 바인딩 지시. HTML 요소의 속성의 값을 설정. 아 때는 이중 중괄호 없이 따옴표로만 설정. -->
+<!-- v-on : 특정 이벤트에 반응할 때 쓰는 디렉티브 -->

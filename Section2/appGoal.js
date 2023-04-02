@@ -1,5 +1,5 @@
 // Vue로 먼저 해야할 것은 Vue 앱을 생성하는 것.
-const app =  Vue.createApp({
+const appGoal =  Vue.createApp({
     // 데이터 구성
     // 값으로 함수를 갖는다.
     // 객체 반환
@@ -43,7 +43,7 @@ const app =  Vue.createApp({
 });
 
 // 어느 구역을 조작할 것인지를 파악해야한다.
-app.mount('#user-goal');
+appGoal.mount('#user-goal');
 
 // Vue 기능을 이용해 조정 섹션과 상호 작용 가능
 
