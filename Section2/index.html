@@ -37,17 +37,31 @@
       <button v-on:click="addCounter">Add</button> <!-- 보통은 이런 식으로 처리한다. -->
       <button v-on:click="counter--">Reduce</button> <!-- HTML은 출력에만 집중해야 한다. 간단하더라도 로직은 js에서 처리하도록 한다. -->
       <button v-on:click.middle="reduceNumber(5)">Reduce 5</button> <!-- right 수식어는 우클릭에 반응을 하는 것이다. middle은 중간 클릭. 즉, 휠 클릭이다.-->
-      <p v-once>Result: {{ counter }}</p> <!-- v-once는 일회용이다. 즉, 처음 렌더링될 때만 동적인 값을 취하고 그 이후로는 바뀌지 않는다.-->
+
+      <p v-once>Start: {{ counter }}</p> <!-- v-once는 일회용이다. 즉, 처음 렌더링될 때만 동적인 값을 취하고 그 이후로는 바뀌지 않는다.-->
       <p>Result: {{ counter }}</p>
+
       <input type="text" v-on:input="setName" v-on:keyup.enter="confirmInput"> <!-- 인지가 없지만 실제로는 event를 보내고 있기에 js에서는 event를 인자로 받는 메서드로 선언한다. --> <!-- key 수식어 : 키보드 이벤트에서 쓰이는 수식어. 특정 키를 입력할 경우 일어난다. -->
-      <input type="text" v-on:input="setWelcome($event, 'nice to see you!')"> <!-- 만약 event 이외의 인자가 존재한다면 $event로 event 인자를 표기한다. -->
+      <input type="text" v-model="lastname">
       <p>Your Name: {{name}}</p>
-      <p>Your Welcome: {{welcome}}</p>
+      <p>Your Lastname: {{lastname}}</p>
       <p>Your Confirmed Name: {{confirmedName}}</p>
+      <p>Fullname : {{fullname}}</p>
+
       <form v-on:submit.prevent="submitForm"> <!-- 수신하는 이벤트에 연결해서 이벤트 동작을 변경할 수 있다. 그것을 이벤트 수식어라고 한다. --> <!-- prevent 수식어는 vue에 내장되어 있으며 브라우저 기본값을 방지한다. -->
         <input type="text">
         <button>Sign Up</button>
       </form>
+      <br/>
+
+      <input type="text" v-on:input="setAddress('대한민국 ', $event)"> <!-- 만약 event 이외의 인자가 존재한다면 $event로 event 인자를 표기한다. -->
+      <p>Your Address: {{address}}</p>
+      <br/>
+
+      <input type="text" v-model="welcome"> <!-- v-model = v-bind:value + v-on:input -->
+      <button v-on:click="resetInput">Reset Input</button> <!-- 양방항 바인딩 : 입력 요소에서 나오는 이벤트를 수신하는 동시에 value 프로퍼티 혹은 속성을 통해 값을 입력 요소에 보낸다.-->
+      <!-- <p>{{outputWelcome()}}</p> 이런 식으로 사용하면 페이지에 변경이 생길 때마다 메서드도 vue에 의해 재실행. 메서드가 어떠한 일을 행하는지 모른다. vue는 html 내의 모든 메서드를 재실행한다. 그렇기 때문에 이벤트에 걸어서 사용하는 것이 좋다. -->
+      <p>{{fullWelcome}}</p> <!-- computed는 괄호 없이 입력 -->
     </section>
   </body>
 </html>
